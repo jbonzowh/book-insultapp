@@ -1,5 +1,6 @@
 package org.openshift;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.context.RequestScoped;
@@ -13,6 +14,8 @@ public class InsultResource {
     @GET
     @Produces("application/json")
     public Map<String, String> getInsult() {
-        return Map.of("insult", new InsultGenerator().generateInsult());
+        Map<String, String> theInsult = new HashMap<>();
+        theInsult.put("insult", new InsultGenerator().generateInsult());
+        return theInsult;
     }
 }
